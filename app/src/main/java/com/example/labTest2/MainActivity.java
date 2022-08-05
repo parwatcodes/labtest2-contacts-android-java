@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.I
     //ArrayList of Contacts
     ArrayList<Contacts> contacts;
     DBHandler dbHandler, dbHandler1;
-    ImageView imgEdit;
+    ImageView imgEdit, imgDel;
     Context context;
     FloatingActionButton addContact;
 
@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.I
         setContentView(R.layout.activity_main);
         context = this;
         TextView allContacts = findViewById(R.id.allContacts);
-        imgEdit = findViewById(R.id.imgEdit);
+
+
         allContacts.setVisibility(View.INVISIBLE);
         dbHandler = new DBHandler(this);
         dbHandler1 = new DBHandler(this);
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.I
         allContactRV.setAdapter(allContactAdapter);
 
         addButtonClick();
-        editButtonClick();
     }
 
     private void addButtonClick() {
@@ -74,42 +74,15 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.I
 
     }
 
-    private void editButtonClick() {
-
-        imgEdit.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                RecyclerView rv = findViewById(R.id.contactList);
-                for (int i = 0; i < rv.getChildCount(); i++) {
-                    rv.getChildAt(i).findViewById(R.id.imgDel).setVisibility(View.INVISIBLE);
-                }
-
-                return true;
-            }
-        });
-
-        imgEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecyclerView rv = findViewById(R.id.contactList);
-                for (int i = 0; i < rv.getChildCount(); i++) {
-                    rv.getChildAt(i).findViewById(R.id.imgDel).setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
-
-    }
 
     @Override
     public void onItemClicked(int index) {
         Intent intent = new Intent(this, com.example.labTest2.ContactDetail.class);
+
         intent.putExtra("contact", contacts.get(index).getId());
         intent.putExtra("position", index);
         startActivity(intent);
         finish();
-
-        Toast.makeText(this, "" + contacts.get(index).getName(), Toast.LENGTH_SHORT).show();
     }
 
 }

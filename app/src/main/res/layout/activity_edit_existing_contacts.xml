@@ -31,6 +31,20 @@
             android:textSize="24sp" />
 
         <EditText
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_editext"
+            android:ems="10"
+            android:fontFamily="sans-serif-medium"
+            android:inputType="text"
+            android:padding="15dp"
+            android:text="Name"
+            android:textColor="@color/white" />
+
+        <EditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,9 +53,9 @@
             android:background="@drawable/bg_editext"
             android:ems="10"
             android:fontFamily="sans-serif-medium"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="15dp"
-            android:text="@string/email"
             android:textColor="@color/white" />
 
         <EditText
@@ -70,22 +84,23 @@
             android:text="@string/address"
             android:textColor="@color/white" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            android:id="@+id/fabSaveBack"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start|left"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_add_btn"
+            android:scaleType="center"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/Color_Dark"
+            app:backgroundTint="@color/white"
+            app:borderWidth="0dp"
+            app:fabSize="normal"
+            app:rippleColor="@color/Color_Dark"
+            tools:ignore="VectorDrawableCompat" />
+
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-
-        android:id="@+id/fabSaveBack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start|left"
-        android:layout_margin="16dp"
-        android:background="@drawable/bg_add_btn"
-        android:scaleType="center"
-        android:src="@drawable/ic_arrow_back"
-        android:tint="@color/Color_Dark"
-        app:backgroundTint="@color/white"
-        app:borderWidth="0dp"
-        app:fabSize="normal"
-        app:rippleColor="@color/Color_Dark"
-        tools:ignore="VectorDrawableCompat" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

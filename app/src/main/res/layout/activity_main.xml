@@ -41,19 +41,13 @@
                 android:textColor="#f9f8fd"
                 android:textSize="18sp" />
 
-            <ImageView
-                android:id="@+id/imgEdit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_baseline_edit_24" />
         </LinearLayout>
 
         <SearchView
 
+            android:id="@+id/searchbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:layout_marginLeft="11dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="11dp"

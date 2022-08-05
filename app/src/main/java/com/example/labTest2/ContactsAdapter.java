@@ -45,17 +45,17 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
         setHolderData(holder, position);
 
-        holder.imgDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DBHandler dbHandler = new DBHandler(context);
-                Contacts c = new Contacts();
-                c = contacts.get(me);
-
-                dbHandler.deleteContact(c);
-                notifyDataSetChanged();
-            }
-        });
+//        holder.imgDel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DBHandler dbHandler = new DBHandler(context);
+//                Contacts c = new Contacts();
+//                c = contacts.get(me);
+//
+//                dbHandler.deleteContact(c);
+//                notifyDataSetChanged();
+//            }
+//        });
 
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +90,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imgContact, imgDel, imgCall;
+        ImageView imgContact, imgDel;
         TextView tvName, tvEmail;
         View mView;
 
@@ -104,10 +104,10 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
             imgContact = itemView.findViewById(R.id.imgContact);
             tvName = itemView.findViewById(R.id.tvName);
             tvEmail = itemView.findViewById(R.id.tvEmail);
-            imgDel = itemView.findViewById(R.id.imgDel);
+
 //            imgCall = itemView.findViewById(R.id.imgCall);
             //Invisible by Default For Main Screen Edit Button
-            imgDel.setVisibility(View.INVISIBLE);
+//            imgDel.setVisibility(View.INVISIBLE);
             mView = itemView;
         }
     }//viewHolder Class end ->Remind

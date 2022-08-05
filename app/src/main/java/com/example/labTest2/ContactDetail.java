@@ -15,8 +15,8 @@ public class ContactDetail extends AppCompatActivity {
 
     Contacts editContacts;
     TextView tvCContactName;
-    TextView etCEmail, etCPhoneNo, etCAddress, etCDOB;
-    FloatingActionButton fabBack, fabEditContact, fabCall;
+    TextView etCEmail, etCPhoneNo, etCAddress;
+    FloatingActionButton fabBack, fabEditContact;
     int index;
     int contactIdToEdit;
 
@@ -47,16 +47,6 @@ public class ContactDetail extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
-            }
-        });
-
-        //functionality  of Call Intent
-        fabCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(Intent.ACTION_DIAL);
-                intent1.setData(Uri.parse("tel:" + editContacts.getMobileNo()));
-                startActivity(intent1);
             }
         });
 

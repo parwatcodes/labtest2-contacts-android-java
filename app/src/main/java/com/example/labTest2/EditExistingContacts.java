@@ -16,7 +16,7 @@ public class EditExistingContacts extends AppCompatActivity {
     Contacts editContacts;
     ImageView imgEContact;
     TextView tvContactName;
-    EditText etEEmail, etEPhoneNo, etEAddress, etEDOB;
+    EditText etEEmail, etEPhoneNo, etEAddress, etEName;
     FloatingActionButton fabSaveBack;
 
     @Override
@@ -43,6 +43,7 @@ public class EditExistingContacts extends AppCompatActivity {
                     editContacts.setMobileNo(etEPhoneNo.getText().toString());
                     editContacts.setAddress(etEAddress.getText().toString());
                     editContacts.setEmail(etEEmail.getText().toString());
+                    editContacts.setName(etEName.getText().toString());
 
                     dbHandler.updateContact(editContacts);
                     Intent intent = new Intent(EditExistingContacts.this, com.example.labTest2.MainActivity.class);
@@ -59,6 +60,7 @@ public class EditExistingContacts extends AppCompatActivity {
         etEEmail.setText(editContacts.getEmail(), TextView.BufferType.EDITABLE);
         etEPhoneNo.setText(editContacts.getMobileNo(), TextView.BufferType.EDITABLE);
         etEAddress.setText(editContacts.getAddress(), TextView.BufferType.EDITABLE);
+        etEName.setText(editContacts.getName(), TextView.BufferType.EDITABLE);
     }
 
 
@@ -68,6 +70,7 @@ public class EditExistingContacts extends AppCompatActivity {
         etEEmail = findViewById(R.id.editEmail);
         etEPhoneNo = findViewById(R.id.editPhoneNo);
         etEAddress = findViewById(R.id.editAddress);
+        etEName = findViewById(R.id.editName);
 
         fabSaveBack = findViewById(R.id.fabSaveBack);
     }
@@ -79,7 +82,7 @@ public class EditExistingContacts extends AppCompatActivity {
         String email = etEEmail.getText().toString();
         String phoneNo = etEPhoneNo.getText().toString();
         String address = etEAddress.getText().toString();
-        String dob = etEDOB.getText().toString();
+        String name = etEName.getText().toString();
 
         if (email.isEmpty() || !email.contains("@") || email.equals(" ")) {
             etEEmail.setError("Email");
@@ -93,10 +96,12 @@ public class EditExistingContacts extends AppCompatActivity {
             etEAddress.setError("Address");
             flag = false;
         }
-        if (dob.isEmpty() || dob.equals(" ")) {
-            etEDOB.setError("Date of Birth");
+
+        if (name.isEmpty() || name.equals(" ")) {
+            etEName.setError("Name");
             flag = false;
         }
+
         return flag;
     }
 

@@ -50,12 +50,6 @@
                 android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgDel"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_clear" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

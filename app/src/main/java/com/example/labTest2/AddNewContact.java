@@ -34,8 +34,6 @@ public class AddNewContact extends AppCompatActivity {
                     Contacts contacts;
                     contacts = new Contacts(etAddName.getText().toString(), etAddPhoneNo.getText().toString(), etAddEmail.getText().toString(), etAddAddress.getText().toString());
 
-                    System.out.println("contaaa" + contacts);
-
                     //Add Contact - in Database
                     dbHandler = new DBHandler(AddNewContact.this);
                     dbHandler.addContacts(contacts);

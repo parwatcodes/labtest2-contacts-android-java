@@ -48,10 +48,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void addContacts(Contacts contacts) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
-
         ContentValues contentValues = new ContentValues();
-
-        System.out.println("inside " + contacts);
 
         contentValues.put(NAME, contacts.getName());
         contentValues.put(NUMBER, contacts.getMobileNo());
@@ -108,7 +105,6 @@ public class DBHandler extends SQLiteOpenHelper {
             while (cursor.moveToNext());
         }
 
-        System.out.println("----------" + contacts);
         return contacts;
     }
 
@@ -122,7 +118,6 @@ public class DBHandler extends SQLiteOpenHelper {
         contentValues.put(ADDRESS, contacts.getAddress());
 
 
-//when edit please change the ID+"=?" to "Iid=?" This was error maybe
         return sqLiteDatabase.update
                 (CONTACTS_TABLE,
                         contentValues,
@@ -131,7 +126,6 @@ public class DBHandler extends SQLiteOpenHelper {
                 );
     }
 
-    //when edit please change the ID+"=?" to "id=?" This was error maybe and this.getWritableDatabase()
     public void deleteContact(Contacts contacts) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         sqLiteDatabase.delete(CONTACTS_TABLE, ID + "=?", new String[]{String.valueOf(contacts.getId())});
